@@ -330,7 +330,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['MBC IRAQ/#help/by jak'];
+    var setGame = ['MBC IRAQ/#help/#invite by jak'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -597,7 +597,7 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 
-client.users.get("558220897547452418").send(
+client.users.get("560845577273999371").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
@@ -646,7 +646,7 @@ client.on("guildMemberAdd", member => {
    
   client.on('message',async message => {
     if(message.content.startsWith(prefix + "restart")) {
-        if(message.author.id !== "558220897547452418") return message.reply('You aren\'t the bot owner.');
+        if(message.author.id !== "560845577273999371") return message.reply('You aren\'t the bot owner.');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
                msg.edit('**Restarting..**');
