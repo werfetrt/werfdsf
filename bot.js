@@ -253,7 +253,27 @@ ${prefix}invite ⥨ لدعوة البوت الى سيرفرك
 
 ${prefix}support ⥨ لدخول سيرفر الدعم
 
-رابط البوت:https://discordapp.com/oauth2/authorize?client_id=558298401004060673&permissions=8&scope=bot
+رابط البوت:https://discordapp.com/oauth2/authorize?client_id=560845577273999371&permissions=8&scope=bot
+اوامر العامه لان اكو خطا 
+⤠ #inv ⥨ لدعوة البوت الى سيرفرك
+⤠ #server ⥨ معلومات عن السيرفر                      
+⤠ #say ⥨ البوت يردد كلامك         
+⤠ #setcolor ⥨ عشان تغير لونك ملاحظة لازم تحط رقم اللون                                          
+⤠ #bot ⥨ معلومات عن البوت
+⤠ #ping ⥨ لمعرفه سرعه البوت
+⤠ #members ⥨ معلومات عن الاعضاء
+⤠ #emojilist ⥨ لعرض الايموجي حقت السيرفر
+⤠ #id ⥨ لمعرفة معلومات حسابك
+⤠ #avatar ⥨ لاعطائك صورة الشخص اللي منشنته مع الرابط
+⤠ #link ⥨ يعطيك رابط انفايت للسيرفر اللي انت فيه
+⤠ #trans <language> <any thing> ⥨ يترجم لك الي تبيه من اي لغة
+⤠ #short ⥨ لاختصار الروابط
+⤠ #embed ⥨ كتابة كلامك داخل امبد
+⤠ #tag ⥨ يكتب لك الكلمة بشكل جميل وكبير
+⤠ #contact ⥨ لارسال رسالة لصاحب البوت
+⤠ #support ⥨ لدخول سيرفر دعم البوت
+	  
+`)
 
 	  `)
    message.channel.sendEmbed(embed)
@@ -330,7 +350,7 @@ client.channels.get("470259562121920512").sendEmbed(embed)
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = ['MBC IRAQ/#help/#invite by jak'];
+    var setGame = ['MBC IRAQ/#help/#inv by jak'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -809,15 +829,19 @@ if (message.content.startsWith(prefix + 'trans')) {
   
   
   
-client.on('message', message => {
-                if(message.content === prefix + "invite") {
-                    let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:point_right: اضغط هنا **")
-                  .setFooter(`MBC IRAQ  `,'https://discordapp.com/api/oauth2/authorize?client_id=560845577273999371&permissions=8&scope=bot')
-                  .setURL("https://goo.gl/ADmgeW");
-                   message.channel.sendEmbed(embed);
-                  }
-});
+client.on('message', message => {//new cmd
+	   if(message.content.startsWith(`#inv`)) { //the invite bot cmd
+		   if(!message.channel.guild) return;
+                 message.react('🌈')
+		   var embed = new Discord.RichEmbed()
+		   .setTitle(">> ClickHere To Add" + `${client.user.username}` + " <<")
+		   .setURL("https://discordapp.com/oauth2/authorize?client_id=" + `${client.user.id}` + "&scope=bot&permissions=2080374975")
+		   .setTimestamp()
+		   .setFooter(`Requested By | ${message.author.username}`)
+		   .setColor("RANDOM")
+		   message.author.send({embed})//send the url in the author dm
+	   }
+   });
   
   
   
