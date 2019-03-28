@@ -812,8 +812,8 @@ if (message.content.startsWith(prefix + 'trans')) {
 client.on('message', message => {
                 if(message.content === prefix + "invite") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:point_right: Click Here**")
-                  .setFooter(`MBC IRAQ `,'https://discordapp.com/api/oauth2/authorize?client_id=560845577273999371&permissions=8&scope=bot')
+                    embed.setTitle("**:point_right: اضغط هنا **")
+                  .setFooter(`MBC IRAQ  `,'https://discordapp.com/api/oauth2/authorize?client_id=560845577273999371&permissions=8&scope=bot')
                   .setURL("https://goo.gl/ADmgeW");
                    message.channel.sendEmbed(embed);
                   }
@@ -2099,7 +2099,15 @@ const codes = {
   });
 
 
-
+client.on('typingStart', (ch, user) => {
+    if(user.presence.status === 'offline') {
+        
+        ch.send(`${user} @here   خبر عاجل ام بي سي تكشف ةاحد يكتب وهو اوف لاين تحذير`)
+        .then(msg => {
+            msg.delete(10000)
+        })
+    }
+})
 
 
 
